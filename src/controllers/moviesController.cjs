@@ -5,7 +5,6 @@ const {
     getTotalMovies,
 } = require('../services/moviesService.cjs');
 const { statusCode } = require('../helpers/constants.cjs');
-const { Movie } = require('../model/movieModel.cjs');
 
 const getAllMoviesHandler = async (req, res, next) => {
     const {

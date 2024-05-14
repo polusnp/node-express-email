@@ -31,9 +31,4 @@ usersRouter.get('/:id', getOneUserHandler);
 usersRouter.put('/:id', validateData(userSchema), putOneUserHandler);
 usersRouter.delete('/:id', deleteUserHandler);
 
-// FAVORITE USERS MOVIES
-
-usersRouter.get('/favorites', authGuard, getFavoriteMoviesHandler);
-usersRouter.post('/favorites/:movieId', authGuard, postFavoriteMovieHandler);
-
 module.exports = usersRouter;

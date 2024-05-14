@@ -1,14 +1,16 @@
-# User Management System CRUD RESTful API
+# User Management System with Authentication and CRUD Operations RESTful API
 
-npm start
-npm run dev
+## Introduction
 
-This is a simple RESTful API built with Express.js for managing users and movies. It provides endpoints for user authentication, user management, and movie management.
+This repository contains the code for a project built using Express.js for the backend. The project implements a comprehensive User Management System with authentication features such as user registration, login, email verification, password reset, and CRUD (Create, Read, Update, Delete) operations for managing users. Additionally, it provides endpoints for managing movies, including fetching all movies and retrieving a single movie by ID. The project utilizes MongoDB as its database.
 
 ## Features
 
--   User registration and login with JWT authentication
--   CRUD operations for users
+-   User registration with email verification
+-   User login with JWT authentication
+-   Email verification for new users
+-   Password reset functionality
+-   CRUD operations for users (Create, Read, Update, Delete)
 -   Fetching all movies and retrieving a single movie by ID
 
 ## Requirements
@@ -27,17 +29,39 @@ This is a simple RESTful API built with Express.js for managing users and movies
 -   **Git**: A version control system used for tracking changes in the project's source code.
 -   **GitHub**: A platform for hosting Git repositories and collaborating on software development projects.
 
-## Access the API endpoints using a tool like Postman or cURL:
+## Accessing API Endpoints
 
-User authentication: POST /auth/login, POST /auth/register
-User management: GET /users, GET /users/current
-Movie management: GET /movies, GET /movies/:id
+You can access the API endpoints using a tool like Postman or cURL. Here are some key endpoints:
+
+### Authentication
+
+-   **Register a new user**: `POST /auth/register`
+-   **Verify user email**: `GET /auth/verification/:code`
+-   **Log in**: `POST /auth/login`
+-   **Repeat verification email**: `POST /auth/verify`
+-   **Forgot password**: `POST /auth/forgot`
+-   **Reset password**: `GET /auth/forgot/:token`
+
+### User Management
+
+-   **Get all users**: `GET /users`
+-   **Create a new user**: `POST /users`
+-   **Get current user**: `GET /users/current`
+-   **Get a specific user**: `GET /users/:id`
+-   **Update a user**: `PUT /users/:id`
+-   **Delete a user**: `DELETE /users/:id`
+-   **Get favorite movies of a user**: `GET /users/favorites`
+-   **Add a movie to user's favorites**: `POST /users/favorites/:movieId`
+
+### Movie Management
+
+-   **Get all movies**: `GET /movies`
+-   **Get a specific movie**: `GET /movies/:id`
+-   **Get movies by collection**: `GET /movies/collect`
 
 ## Project Structure
 
-markdown
-Copy code
-
+```markdown
 -   src/
     -   controllers/
         -   authController.js
@@ -73,3 +97,4 @@ Contributions are welcome! If you have any ideas, suggestions, or found any issu
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+```
