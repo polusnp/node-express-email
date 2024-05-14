@@ -45,6 +45,17 @@ const credentialUserSchema = Joi.object({
         .label('Invalid credentials'),
 });
 
+const forgotPasswordSchema = Joi.object({
+    email: Joi.string()
+        .email({
+            minDomainSegments: 2,
+            tlds: { allow: false },
+        })
+        .required()
+        .regex(/.*@.*\.com$/)
+        .label('Invalid credentials'),
+});
+
 const validateData = (schema) => {
     return (req, res, next) => {
         const { error } = schema.validate(req.body);
@@ -61,4 +72,5 @@ module.exports = {
     validateData,
     credentialUserSchema,
     createUserSchema,
+    forgotPasswordSchema,
 };

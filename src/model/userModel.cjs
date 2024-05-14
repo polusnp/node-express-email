@@ -31,6 +31,19 @@ const userSchema = new Schema(
                     `Password must be at least 8 characters long and contain only letters and numbers`,
             },
         },
+        resetPasswordToken: {
+            type: String,
+            required: false,
+        },
+        resetPasswordExpires: {
+            type: Date,
+            required: false,
+        },
+        confirmed: {
+            type: Boolean,
+            required: true,
+            default: false,
+        },
         phone: {
             type: String,
             validate: {
@@ -39,7 +52,7 @@ const userSchema = new Schema(
                 },
                 message: (props) => `${props.value} is not valid phone number!`,
             },
-            required: true,
+            required: false,
         },
         favoriteMovies: [
             {
